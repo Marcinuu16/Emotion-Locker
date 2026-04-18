@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw48eem7qhq1x"]
+
+[ext_resource type="PackedScene" uid="uid://ccm50qha56kkk" path="res://scenes/corridor_scene.tscn" id="1_w5aja"]
+
+[node name="game" type="Node2D"]
+
+[node name="corridor" parent="." instance=ExtResource("1_w5aja")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(96, 56)
+zoom = Vector2(6, 6)

@@ -11,5 +11,18 @@ config_version=5
 [application]
 
 config/name="Emotion Locker Game"
+run/main_scene="uid://bw48eem7qhq1x"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/sprites/icon.svg"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "yellow",
+"res://scenes/": "teal",
+"res://scripts/": "gray"
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

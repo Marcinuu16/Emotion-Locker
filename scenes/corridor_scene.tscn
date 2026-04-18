@@ -1,0 +1,127 @@
+[gd_scene load_steps=10 format=4 uid="uid://ccm50qha56kkk"]
+
+[ext_resource type="Texture2D" uid="uid://dg1lbshm6p5st" path="res://assets/sprites/tilemap.png" id="1_hbxne"]
+[ext_resource type="Script" uid="uid://dmk1efhsl4ogq" path="res://scripts/corridor_script.gd" id="1_u28c5"]
+[ext_resource type="Texture2D" uid="uid://5nkp72qto1ye" path="res://assets/sprites/lockers.png" id="3_lj1ec"]
+[ext_resource type="PackedScene" uid="uid://v05ab026pw5u" path="res://scenes/locker_scene.tscn" id="4_l7pxk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xswuy"]
+texture = ExtResource("1_hbxne")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+2:0/0 = 0
+4:1/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+7:2/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l7pxk"]
+texture = ExtResource("3_lj1ec")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_pucmg"]
+sources/0 = SubResource("TileSetAtlasSource_xswuy")
+sources/1 = SubResource("TileSetAtlasSource_l7pxk")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbxne"]
+texture = ExtResource("1_hbxne")
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u28c5"]
+sources/0 = SubResource("TileSetAtlasSource_hbxne")
+
+[node name="corridor" type="Node2D"]
+position = Vector2(32, 64)
+script = ExtResource("1_u28c5")
+
+[node name="Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAABAAAAAAAHAAIAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAAAAAABAAAAAAAIAP//AAAAAAEAAAAHAP//AAAAAAEAAAAGAP7/AAAAAAEAAAAFAP7/AAAAAAEAAAAHAP7/AAAAAAEAAAAIAP7/AAAAAAEAAAAIAP3/AAAAAAEAAAAHAP3/AAAAAAEAAAAGAP3/AAAMAAAAAAAFAP3/AAALAAAAAAAEAP3/AAAKAAAAAAADAP3/AAAAAAEAAAACAP3/AAAAAAEAAAABAP3/AAAAAAEAAAAAAP3/AAAAAAEAAAAAAP7/AAAAAAEAAAABAP7/AAAAAAEAAAACAP//AAAAAAEAAAADAP//AAAAAAEAAAD/////AAAAAAEAAAD///7/AAAAAAEAAAD///3/AAAAAAEAAAAIAAAAAAABAAAAAAD//wAAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAACAP7/AAAAAAEAAAABAP//AAAAAAEAAAAAAP//AAAAAAEAAAADAP7/AAAAAAEAAAAEAP7/AAAAAAEAAAAGAP//AAAAAAEAAAAFAP//AAAAAAEAAAAEAP//AAAAAAEAAAD+/wIAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAAABAAAAAAD+////AAAAAAEAAAAJAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAAAAAABAAAAAAAJAP//AAAAAAEAAAAJAP7/AAAAAAEAAAAJAP3/AAAAAAEAAAD+//7/AAAAAAEAAAD+//3/AAAAAAEAAAD+//z/AAAAAAEAAAD///z/AAAAAAEAAAAAAPz/AAAAAAEAAAABAPz/AAAAAAEAAAACAPz/AAAAAAEAAAADAPz/AAAAAAEAAAAEAPz/AAAAAAEAAAAFAPz/AAAAAAEAAAAGAPz/AAAAAAEAAAAHAPz/AAAAAAEAAAAIAPz/AAAAAAEAAAAJAPz/AAAAAAEAAAA=")
+tile_set = SubResource("TileSet_pucmg")
+
+[node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAP3/AAAEAAAAAAAAAP7/AAAEAAEAAAAAAP//AAAEAAIAAAABAP3/AAAFAAAAAAABAP7/AAAFAAEAAAABAP//AAAFAAIAAAA=")
+tile_set = SubResource("TileSet_pucmg")
+
+[node name="Effects" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_u28c5")
+
+[node name="locker" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(56, -9)
+
+[node name="locker2" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(72, -9)
+
+[node name="locker3" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(88, -9)
+
+[node name="locker4" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(104, -9)
+
+[node name="locker5" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(120, -9)
+
+[node name="locker6" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(136, -9)
+
+[node name="locker7" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(152, -9)
+
+[node name="locker8" parent="." instance=ExtResource("4_l7pxk")]
+position = Vector2(-24, -9)
