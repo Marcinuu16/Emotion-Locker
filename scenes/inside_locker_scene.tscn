@@ -1,5 +1,73 @@
-[gd_scene format=3 uid="uid://dyp3lnv5fe0uw"]
+[gd_scene load_steps=8 format=4 uid="uid://dyp3lnv5fe0uw"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dg1lbshm6p5st" path="res://assets/sprites/tilemap.png" id="1_7jl0w"]
+[ext_resource type="Script" uid="uid://ct7mhbnlka3jf" path="res://scripts/inside_locker_scene.gd" id="1_s5860"]
+[ext_resource type="Texture2D" uid="uid://dv6qxyv6i6pf0" path="res://assets/sprites/locker_close.png" id="2_yxoht"]
+[ext_resource type="PackedScene" uid="uid://btdot84gn8fk0" path="res://scenes/item_scene.tscn" id="4_s5860"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxoht"]
+texture = ExtResource("1_7jl0w")
+0:0/0 = 0
+1:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+0:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_hl0qa"]
+sources/0 = SubResource("TileSetAtlasSource_yxoht")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s5860"]
+size = Vector2(16, 112)
+
+[node name="locker_inside" type="Node2D"]
+script = ExtResource("1_s5860")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAABAAAAAAADAAQAAAADAAAAAAADAAQAAAAEAAAAAAADAAQAAAAGAAAAAAADAAQAAAAFAAAAAAADAAQAAAAHAAAAAAADAAQAAAAIAAAAAAADAAQAAAAJAAAAAAADAAQAAAAKAAAAAAADAAQAAAALAAAAAAADAAQAAAALAAYAAAADAAQAAAAKAAYAAAADAAQAAAAKAAUAAAADAAQAAAAKAAQAAAADAAQAAAAKAAMAAAADAAQAAAAKAAIAAAADAAQAAAAKAAEAAAADAAQAAAAJAAEAAAADAAQAAAAJAAIAAAADAAQAAAAJAAMAAAADAAQAAAAJAAQAAAADAAQAAAAJAAUAAAADAAQAAAAJAAYAAAADAAQAAAALAAUAAAADAAQAAAALAAQAAAADAAQAAAALAAMAAAADAAQAAAALAAIAAAADAAQAAAALAAEAAAADAAQAAAAIAAEAAAADAAQAAAAHAAEAAAADAAQAAAAGAAEAAAADAAQAAAAFAAEAAAADAAQAAAAEAAEAAAADAAQAAAAEAAIAAAADAAQAAAAFAAIAAAADAAQAAAAGAAIAAAADAAQAAAAHAAIAAAADAAQAAAAIAAIAAAADAAQAAAAFAAMAAAADAAQAAAAEAAMAAAADAAQAAAAGAAMAAAADAAQAAAAHAAMAAAADAAQAAAAIAAMAAAADAAQAAAAHAAQAAAADAAQAAAAGAAQAAAADAAQAAAAFAAQAAAADAAQAAAAEAAQAAAADAAQAAAAEAAUAAAADAAQAAAAFAAUAAAADAAQAAAAGAAUAAAADAAQAAAAHAAUAAAADAAQAAAAHAAYAAAADAAQAAAAGAAYAAAADAAQAAAAFAAYAAAADAAQAAAAEAAYAAAADAAQAAAADAAEAAAADAAQAAAABAAEAAAADAAQAAAAAAAEAAAADAAQAAAAAAAIAAAADAAQAAAABAAIAAAADAAQAAAABAAMAAAADAAQAAAAAAAMAAAADAAQAAAAAAAQAAAADAAQAAAABAAQAAAADAAQAAAADAAMAAAADAAQAAAADAAIAAAADAAQAAAADAAQAAAADAAQAAAADAAUAAAADAAQAAAADAAYAAAADAAQAAAABAAUAAAADAAQAAAAAAAUAAAADAAQAAAABAAYAAAADAAQAAAAAAAYAAAADAAQAAAAIAAYAAAADAAQAAAAIAAUAAAADAAQAAAAIAAQAAAADAAQAAAACAAYAAAADAAQAAAACAAUAAAADAAQAAAACAAQAAAADAAQAAAACAAMAAAADAAQAAAACAAIAAAADAAQAAAACAAEAAAADAAQAAAACAAAAAAADAAQAAAA=")
+tile_set = SubResource("TileSet_hl0qa")
+
+[node name="Locker" type="Sprite2D" parent="."]
+position = Vector2(96, 56)
+texture = ExtResource("2_yxoht")
+
+[node name="Area2D1" parent="." instance=ExtResource("4_s5860")]
+position = Vector2(98, 24)
+
+[node name="Area2D2" parent="." instance=ExtResource("4_s5860")]
+position = Vector2(98, 49)
+
+[node name="Area2D3" parent="." instance=ExtResource("4_s5860")]
+position = Vector2(98, 75)
+
+[node name="Area2D4" parent="." instance=ExtResource("4_s5860")]
+position = Vector2(98, 104)
+
+[node name="exit" type="Area2D" parent="."]
+position = Vector2(70, 58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(-2, -2)
+shape = SubResource("RectangleShape2D_s5860")
+
+[connection signal="input_event" from="exit" to="." method="_on_exit_input_event"]

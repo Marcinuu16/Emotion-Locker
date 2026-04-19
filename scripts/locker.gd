@@ -42,7 +42,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				state = "moving_to_close"
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			print("wchodze")
-		
+			get_tree().root.get_node("game").load_screen("res://scenes/inside_locker_scene.tscn", "corridor")
+
 		sound_player.play()
 	
 func _on_animated_sprite_2d_animation_finished() -> void:
